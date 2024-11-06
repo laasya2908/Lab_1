@@ -15,7 +15,7 @@ RUN mvn clean package
 FROM openjdk:11-jre-slim
 
 # Copy the jar file from the build stage
-COPY --from=build /app/target/my-app-1.0-SNAPSHOT.jar /usr/local/lib/my-app.jar
+COPY --from=build /app/target/maven-docker-example-1.0-SNAPSHOT.jar /usr/local/lib/my-app.jar
 
 # Command to run the application
 ENTRYPOINT ["java", "-jar", "/usr/local/lib/my-app.jar"]
